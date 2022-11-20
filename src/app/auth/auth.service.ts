@@ -74,7 +74,7 @@ export class AuthService {
     this.router.navigateByUrl('/login');
   }
 
-  registration(email: string, password: string) {
-    return this.http.post<User|Error>(`${this._baseUrl}/registration`, { email, password });
+  registration(username: string, email: string, password: string) {
+    return this.http.post<User|Error>(`${this._baseUrl}/registration`, { name: username, email, password });
   }
 }

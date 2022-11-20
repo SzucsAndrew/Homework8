@@ -5,6 +5,10 @@
     <mat-card-content>
       <div class="registration-form">
         <mat-form-field appearance="outline">
+          <mat-label>Username</mat-label>
+          <input matInput placeholder="Username" [(ngModel)]="username">
+        </mat-form-field>
+        <mat-form-field appearance="outline">
           <mat-label>Email</mat-label>
           <input matInput placeholder="Email" [(ngModel)]="email">
         </mat-form-field>

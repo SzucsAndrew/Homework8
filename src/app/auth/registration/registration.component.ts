@@ -9,8 +9,10 @@ import { Error } from '../models/error.model';
   styleUrls: ['./registration.component.scss']
 })
 export class RegistrationComponent implements OnInit {
+  username: string;
   email: string;
   password: string;
+
   error: Error = undefined;
 
   constructor(private authService: AuthService, private router: Router) { }
@@ -19,14 +21,14 @@ export class RegistrationComponent implements OnInit {
   }
 
   registration() {
-    this.authService.registration(this.email, this.password).subscribe(
+    this.authService.registration(this.username, this.email, this.password).subscribe(
       (res) => {
         const error = res as Error;
         if(error.code) {
           this.error = error;
           return;
         }
-        
+
         this.router.navigateByUrl('/login');
       },
       (err) => this.error = new Error(err.error, err.message));
