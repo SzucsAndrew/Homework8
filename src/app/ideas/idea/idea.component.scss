@@ -1,0 +1,14 @@
+.ideas-container {
+    display: flex;
+    justify-content: center;
+    padding: 32px 0;
+
+    .idea {
+        width: 80%;
+    }
+
+    .action-buttons {
+        display: flex;
+        justify-content: space-between;
+    }
+}

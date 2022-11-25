@@ -3,6 +3,7 @@
     <span>Idea box</span>
     </div>
     <div>
+        <button mat-button color="primary" routerLink="ideas/new">Add idea</button>
         <button mat-button *ngIf="isLoggedIn" (click)="logout()" ><mat-icon>logout</mat-icon></button>
     </div>
 </mat-toolbar>

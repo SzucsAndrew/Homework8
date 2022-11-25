@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { IdeasService } from '../ideas.service';
 import { Idea } from '../models/idea.model';
 
@@ -9,7 +10,7 @@ import { Idea } from '../models/idea.model';
 })
 export class ListIdeasComponent implements OnInit {
   ideas: Idea[] = [];
-  constructor(private ideasService: IdeasService) { }
+  constructor(private ideasService: IdeasService, private router: Router) { }
 
   ngOnInit(): void {
     this.listIdeas();
@@ -19,15 +20,15 @@ export class ListIdeasComponent implements OnInit {
     this.ideasService.listIdeas().subscribe(ideas => this.ideas = ideas);
   }
 
-  upvote(idea: Idea){
-    this.ideasService.upvoteIdea(idea).subscribe(() => this.listIdeas());
-  }
-
-  downvote(idea: Idea){
-    this.ideasService.downvoteIdea(idea).subscribe(() => this.listIdeas());
+  vote(upvote : boolean){
+    this.listIdeas();
   }
 
   deleteIdea(idea: Idea){
     this.ideasService.deleteIdea(idea).subscribe(() => this.listIdeas());
+  }
+
+  editIdea(idea: Idea) {
+    this.router.navigateByUrl(`/ideas/new?id=${idea.id}`);
   }
 }

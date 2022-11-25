@@ -8,6 +8,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AuthInterceptorService } from './auth-interceptor.service';
+import { AppRoutingModule } from '../app-routing.module';
 
 
 @NgModule({
@@ -20,7 +21,8 @@ import { AuthInterceptorService } from './auth-interceptor.service';
     FormsModule,
     MatCardModule,
     MatInputModule,
-    MatButtonModule
+    MatButtonModule,
+    AppRoutingModule
   ],
   exports: [
     LoginComponent,

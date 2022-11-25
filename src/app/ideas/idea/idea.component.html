@@ -1,1 +1,14 @@
-<p>idea works!</p>
+<div *ngIf="idea !== null">
+    <div class="ideas-container">
+        <mat-card class="idea">
+            <mat-card-header>
+                <mat-card-title matBadge="{{idea.votes}}">{{idea.Name}}</mat-card-title>
+                <mat-card-subtitle>{{idea.description}}</mat-card-subtitle>
+            </mat-card-header>
+            <mat-card-actions class="action-buttons" align="start">
+                <app-vote [idea]="idea" (vote)="vote($event)"></app-vote>
+                <button mat-button (click)="deleteIdea(idea)"><mat-icon>delete</mat-icon></button>
+            </mat-card-actions>
+        </mat-card>
+    </div>
+</div>

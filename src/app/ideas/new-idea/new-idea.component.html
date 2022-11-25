@@ -1,1 +1,23 @@
-<p>new-idea works!</p>
+<div class="container">
+    <h1>Submit your idea</h1>
+    <form [formGroup]="form" (ngSubmit)="submitted()">
+        <mat-form-field appearance="fill">
+            <mat-label>Name</mat-label>
+            <input matInput formControlName="name">
+            <mat-error *ngIf="form.controls.name.errors?.required">
+                Name must be provided
+            </mat-error>
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+            <mat-label>Description</mat-label>
+            <input matInput formControlName="description">
+            <mat-error *ngIf="form.controls.description.errors?.required">
+                Description must be provided
+            </mat-error>
+        </mat-form-field>
+        <div class="buttons">
+            <button [disabled]="form.invalid || isLoading" mat-button>Save</button>
+            <mat-spinner diameter="30" *ngIf="isLoading"></mat-spinner>
+        </div>
+    </form>
+</div>
