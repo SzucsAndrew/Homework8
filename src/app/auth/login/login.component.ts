@@ -11,6 +11,7 @@ export class LoginComponent implements OnInit {
 
   email: string;
   password: string;
+  errorMessage: string = null;
 
   constructor(private authService: AuthService, private router: Router) { }
 
@@ -18,7 +19,9 @@ export class LoginComponent implements OnInit {
   }
 
   login() {
-    this.authService.login(this.email, this.password).subscribe(() => this.router.navigateByUrl('/ideas'));
+    this.authService.login(this.email, this.password).subscribe(
+      () => this.router.navigateByUrl('/ideas'),
+      (error) => this.errorMessage = error.message);
   }
 
   registration() {

@@ -1,7 +1,7 @@
 <div class="ideas-container">
     <mat-card class="idea" *ngFor="let idea of ideas">
         <mat-card-header>
-            <mat-card-title matBadge="{{idea.votes}}">{{idea.Name}}</mat-card-title>
+            <mat-card-title matBadgeOverlap="false" matBadge="{{idea.votes}}">{{idea.Name}}</mat-card-title>
             <mat-card-subtitle>{{idea.description}}</mat-card-subtitle>
         </mat-card-header>
         <mat-card-actions class="action-buttons" align="start">
